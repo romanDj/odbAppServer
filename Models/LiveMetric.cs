@@ -16,5 +16,8 @@ namespace gasDiesel.Models
 
         public string Name { get; set; }
         public string Value { get; set; }
+
+        [MaxLength(70)]
+        public string Subject { get; set; }
     }
 }

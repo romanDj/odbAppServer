@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace gasDiesel.Controllers
@@ -10,9 +12,17 @@ namespace gasDiesel.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        // [Authorize(Roles = "Administrator")]
+        [Authorize]
+        public dynamic Get()
         {
-            return new string[] { "value1", "value2" };
+            var principal = User as ClaimsPrincipal;
+            var subjectClaim = principal.FindFirst("sub");
+            if (subjectClaim != null)
+            {
+                return subjectClaim.Value;
+            }
+            return null;                     
         }
 
         // GET api/values/5

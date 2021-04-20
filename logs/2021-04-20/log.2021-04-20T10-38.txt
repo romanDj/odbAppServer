@@ -1,0 +1,9 @@
+2021-04-20 10:38:34.0659|DEBUG|Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationMiddleware|Authentication failed
+System.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired.
+ValidTo: '04/19/2021 10:14:29'
+Current time: '04/20/2021 07:38:34'.
+   в System.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\Validators.cs:строка 219
+   в System.IdentityModel.Tokens.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\JwtSecurityTokenHandler.cs:строка 1193
+   в System.IdentityModel.Tokens.JwtSecurityTokenHandler.ValidateToken(String securityToken, TokenValidationParameters validationParameters, SecurityToken& validatedToken) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\JwtSecurityTokenHandler.cs:строка 702
+   в Microsoft.Owin.Security.Jwt.JwtFormat.Unprotect(String protectedText)
+   в Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationHandler.<AuthenticateCoreAsync>d__0.MoveNext()

@@ -1,0 +1,4 @@
+2021-04-19 08:36:20.9397|DEBUG|IdentityServer3.AccessTokenValidation.ValidationEndpointTokenProvider|Error returned from token validation endpoint: Not Found
+2021-04-19 08:36:20.9547|DEBUG|Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationMiddleware|invalid bearer token received
+2021-04-19 08:36:47.9455|DEBUG|IdentityServer3.AccessTokenValidation.ValidationEndpointTokenProvider|Error returned from token validation endpoint: Not Found
+2021-04-19 08:36:47.9455|DEBUG|Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationMiddleware|invalid bearer token received

@@ -1,0 +1,2 @@
+2021-04-20 10:18:27.3303|DEBUG|IdentityServer3.AccessTokenValidation.IntrospectionEndpointTokenProvider|Error returned from introspection endpoint: Unauthorized
+2021-04-20 10:18:27.3303|DEBUG|Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationMiddleware|invalid bearer token received

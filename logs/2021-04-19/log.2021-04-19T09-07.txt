@@ -1,0 +1,12 @@
+2021-04-19 09:07:45.8027|DEBUG|Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationMiddleware|Authentication failed
+System.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10214: Audience validation failed. Audiences: 'odbAppApi'. Did not match:  validationParameters.ValidAudience: 'https://localhost:44310/resources' or validationParameters.ValidAudiences: 'null'
+   в System.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\Validators.cs:строка 92
+   в System.IdentityModel.Tokens.JwtSecurityTokenHandler.ValidateToken(String securityToken, TokenValidationParameters validationParameters, SecurityToken& validatedToken) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\JwtSecurityTokenHandler.cs:строка 702
+   в Microsoft.Owin.Security.Jwt.JwtFormat.Unprotect(String protectedText)
+   в Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationHandler.<AuthenticateCoreAsync>d__0.MoveNext()
+2021-04-19 09:07:47.1146|DEBUG|Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationMiddleware|Authentication failed
+System.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10214: Audience validation failed. Audiences: 'odbAppApi'. Did not match:  validationParameters.ValidAudience: 'https://localhost:44310/resources' or validationParameters.ValidAudiences: 'null'
+   в System.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\Validators.cs:строка 92
+   в System.IdentityModel.Tokens.JwtSecurityTokenHandler.ValidateToken(String securityToken, TokenValidationParameters validationParameters, SecurityToken& validatedToken) в c:\workspace\WilsonForDotNet45Release\src\System.IdentityModel.Tokens.Jwt\JwtSecurityTokenHandler.cs:строка 702
+   в Microsoft.Owin.Security.Jwt.JwtFormat.Unprotect(String protectedText)
+   в Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationHandler.<AuthenticateCoreAsync>d__0.MoveNext()

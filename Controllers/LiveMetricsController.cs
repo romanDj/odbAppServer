@@ -8,6 +8,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Numerics;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Http;
 
 namespace gasDiesel.Controllers
@@ -36,8 +38,14 @@ namespace gasDiesel.Controllers
         }
 
         // POST api/<controller>
+        [Authorize]
         public int[] Post([FromBody] MetricsData data)
         {
+            var principal = User as ClaimsPrincipal;
+            var subjectClaim = principal.FindFirst("sub");
+            if (subjectClaim == null) {
+                throw new HttpException(500, "Subject is null");
+            }
             List<int> ids = new List<int>();
 
             Debug.WriteLine(JsonConvert.SerializeObject(data));
@@ -52,7 +60,8 @@ namespace gasDiesel.Controllers
                         Models.Location obj = new Models.Location {
                             Latitude = double.Parse(gps["latitude"], CultureInfo.InvariantCulture),
                             Longitude = double.Parse(gps["longitude"], CultureInfo.InvariantCulture),
-                            Dt = (new DateTime(1970, 1, 1)).AddMilliseconds((Double)liveMetric.ts).ToLocalTime()
+                            Dt = (new DateTime(1970, 1, 1)).AddMilliseconds((Double)liveMetric.ts).ToLocalTime(),
+                            Subject = subjectClaim.Value
                         };
                         db.GasDieselContext.Locations.Add(obj);
                         db.GasDieselContext.SaveChanges();
@@ -63,14 +72,16 @@ namespace gasDiesel.Controllers
                         {
                             Name = liveMetric.name,
                             Value = liveMetric.value,
-                            Dt = (new DateTime(1970, 1, 1)).AddMilliseconds((Double)liveMetric.ts).ToLocalTime()
+                            Dt = (new DateTime(1970, 1, 1)).AddMilliseconds((Double)liveMetric.ts).ToLocalTime(),
+                            Subject = subjectClaim.Value
                         };
                         db.GasDieselContext.LiveMetrics.Add(obj);
                         db.GasDieselContext.SaveChanges();
                     }
                     ids.Add(liveMetric.rowid);
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     Debug.WriteLine(e);
                 }   
             }

@@ -16,5 +16,8 @@ namespace gasDiesel.Models
 
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+
+        [MaxLength(70)]
+        public string Subject { get; set; }
     }
 }

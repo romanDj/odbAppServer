@@ -29,20 +29,10 @@ namespace gasDiesel
             {
                 ClientId = "odbApp",
                 ClientSecret = "odbAppSecret",
-                Authority = "https://localhost:44310",
-                // ValidationMode = ValidationMode.ValidationEndpoint,
-                // ValidationMode = ValidationMode.Local,
-                // AuthenticationType = "Bearer",
-                RequiredScopes = new[] { "odbAppApi" },
-                // NameClaimType = System.Security.Claims.ClaimTypes.Name,
-                // RoleClaimType = System.Security.Claims.ClaimTypes.Role,
+                Authority = "https://localhost:44310",               
+                RequiredScopes = new[] { "odbAppApi" },               
                 BackchannelHttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator }
-            });
-
-            // configure web api
-            //  var config = new HttpConfiguration();
-            // WebApiConfig.Register(config);
-            // app.UseWebApi(config);
+            });          
         }
     }
 }
